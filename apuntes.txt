@@ -1,0 +1,80 @@
+https://gobyexample.com/
+https://go.dev/tour/welcome/1
+documentacion
+https://go.dev/doc/
+
+que es Go?
+de codigo abierto
+compilado: se compilan en un unico archivo binario, compilacion cruzada, de windows a linux y linux a windows
+tipado estaticos: se indica que tipo de dato almacena la variable, se coloca la variable y podemos almacenar un tipo de dato
+multiplataforma: desarrollada en cualquier SO
+multiparadigna:soporta diferentes paradigmas de programacion
+manejo de concurrencia: permite que cualquier funcion se ejecute como un subproceso ligero, con un poco esfuerzo, con la palabra reservada Go, se implementa la concurrencia
+biblioteca estandar grande, no depende de librerias de terceros, administracion automatica de memoria
+
+
+correr archivo Go
+go run archivo x.go
+
+compilar en Go
+go build archivo x.go
+
+./x.exe se corre archivo compilado
+
+manejador de modulos paquete de terceros: definir y gestionar los modulos de las dependencias en nuestros proyectos en Go
+inicializar un modulo en Go
+go mod init holamundo(nombre)
+
+archivo go.sum registrar la suma de verificaciones de los modulos y las dependencias de nuestro proyecto
+
+pquete code: es un paquete externo que proporciona una serie de citas famosas como hola mundo: se instala asi
+go get ruta del repo del paquete(rsc.io/quote)
+
+
+para que un modulo sea reutilizable por otros desarrolladores, iniciamos el manejador de modulos
+
+go mod init repositorio
+go mod init github.com/mtamays23/greetings
+
+go mod edit -replace github.com/mtamays23/greetings=../greetings, para reutilizar el modulo remplazo la ruta de github que no la reconoce, en donde esta la funcion que llamare.
+
+go mod tidy: agregar paquetes faltantes a los proyectos y quita si no lo utilizamos, agrega paquete faltante de github greetings
+
+go run . ejecucion en el modulo actual
+
+
+💒 compilar aplicacion
+
+nos paramos en el modulo a compilar
+go build main.go
+./main se ejecuta ejemplo de lo que devuelve la funcion: map[Eduardo:¡Hola, Eduardo! ¡Bienvenido! Ismael:¡Saludo, Ismael! ¡Encantado de conocerte! Mery:¡Saludo, Mery! ¡Encantado de conocerte! Monica:¡Saludo, Monica! ¡Encantado de conocerte!]
+
+compilar con otro nombre: go build -o hello main.go
+./hello
+
+ejecutarlo desde cualquier parte, agregarlo al path
+cd raiz
+nano .profile, agrego:
+    export PATH=$PATCH:/home/mtamays/go/src/hello
+source .profile
+
+o asi:
+
+go install
+la carpeta bin que se agrego al PATH
+
+💒 github desplegar
+…or create a new repository on the command line
+echo "# greetings" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mtamays23/greetings.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/mtamays23/greetings.git
+git branch -M main
+git push -u origin main
+
+
